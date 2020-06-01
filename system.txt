@@ -1,12 +1,7 @@
-A, B, C, ENZYME, ENZYMEB, ENZYMEI
+A, B, E
 
---0.1-> B
---0.1-> A
-C -1,C-> 
+#Michaelis menten Kinetics: SUBSTRATE -M-{k_cat},{K_M},{EnZYME}-> PRODUCT
+#Stoichometric reaction: EDUKT -S-{k}-> PRODUCT
 
-A + B + ENZYME -10,A,B,ENZYME-> ENZYMEB
-ENZYMEB -0.4,ENZYMEB-> A + B + ENZYME
-ENZYMEB -1,ENZYMEB-> C + ENZYME
-
-C + ENZYME -2,C,ENZYME-> ENZYMEI
-ENZYMEI -0.01-ENZYMEI-> ENZYME + C
+A -M-2,0.04,E-> B
+B -S-2->
