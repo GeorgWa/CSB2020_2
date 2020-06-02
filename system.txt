@@ -1,7 +1,10 @@
 A, B, E
 
-#Michaelis menten Kinetics: SUBSTRATE -M-{k_cat},{K_M},{EnZYME}-> PRODUCT
-#Stoichometric reaction: EDUKT -S-{k}-> PRODUCT
+# Michaelis Menten kinetics: SUBSTRATE -M-{k_cat},{K_M},{ENZYME}-> PRODUCT
+# Stoichometric reaction: EDUKT -S-{k}-> PRODUCT
+
+
 
 A -M-2,0.04,E-> B
-B -S-2->
+E -S-0.8,E->
+B -S-0.05,B-> 2B
