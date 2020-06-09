@@ -1,15 +1,14 @@
 A, B, C, D
 
 # Michaelis Menten kinetics:                 SUBSTRATE -M-{V_max},{K_M}-> PRODUCT
-# MM kinetics with noncompetetive inhibition:SUBSTRATE -M-{V_max},{K_M},{K_i},{INHIBITOR}-> PRODUCT
-
+# MM kinetics with allosteric inhibition:    SUBSTRATE -I-{V_max},{K_M},{K_i},{INHIBITOR}-> PRODUCT
+# MM kinetics with allosteric activation:    SUBSTRATE -A-{V_max},{K_M},{K_a},{ACTIVATOR}-> PRODUCT
 # Hill cooperative kinetic:                  SUBSTRATE -H-{V_max},{K_a},{hill_coefficient}-> PRODUCT
 # Stoichometric reaction:                    EDUKT + EDUKT -S-{k}-> PRODUCT + PRODUCT
 
 #-S-2-> A #Influx of A
-#A -M-0.1,2,ENZYME->#cooperative conversion of A to B
 
-A -I-0.5,2,2,5,D-> B #cooperative conversion from B to C
-B -M-1,2,5-> C #cooperative conversion from B to C
-C -H-4,2,5-> D
-D -I-0.5,2,2,5,A-> A #cooperative conversion from B to C
+#A -I-0.5,2,2,5,D-> B #cooperative conversion from B to C
+#B -M-1,2,5-> C #cooperative conversion from B to C
+#C -H-4,2,5-> D
+A -A-0.5,2,2,5,B-> B #cooperative conversion from B to C

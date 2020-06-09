@@ -1,0 +1,40 @@
+GLUCOSE, PEP, ATP, PYRUVATE, P, GLUCOSEP, FRUCTOSEP, PFRUCTOSEP, DHAP, GAP, BPG, PG
+
+# Michaelis Menten kinetics:                 SUBSTRATE -M-{V_max},{K_M}-> PRODUCT
+# MM kinetics with allosteric inhibition:    SUBSTRATE -I-{V_max},{K_M},{K_i},{INHIBITOR}-> PRODUCT
+# MM kinetics with allosteric activation:    SUBSTRATE -A-{V_max},{K_M},{K_a},{ACTIVATOR}-> PRODUCT
+# Hill cooperative kinetic:                  SUBSTRATE -H-{V_max},{K_a},{hill_coefficient}-> PRODUCT
+# Stoichometric reaction:                    EDUKT + EDUKT -S-{k}-> PRODUCT + PRODUCT
+
+#-S-2-> A #Influx of A
+
+#-S-0.1-> ATP
+-S-0.1-> GLUCOSE
+
+PEP -I-1,2,2,P-> PYRUVATE + P
+P + GLUCOSE -S-0.1-> GLUCOSEP
+
+GLUCOSEP -S-1-> FRUCTOSEP
+FRUCTOSEP -S-1-> GLUCOSEP
+
+FRUCTOSEP + ATP -A-2,2,2,5,ATP-> PFRUCTOSEP
+
+PFRUCTOSEP -S-2-> DHAP + GAP
+DHAP + GAP -S-2-> PFRUCTOSEP
+
+DHAP -S-2-> GAP
+GAP -S-2-> DHAP
+
+GAP -S-2-> BPG
+BPG -S-2-> GAP
+
+BPG -M-1,2-> ATP + PG
+#PG + ATP -S-0.02-> BPG
+
+PG -S-0.2-> PEP
+PEP -S-0.2-> PG
+
+PEP -A-0.5,2,2,PFRUCTOSEP-> ATP + PYRUVATE
+
+PYRUVATE -S-0.3->
+ATP -S-0.1->
