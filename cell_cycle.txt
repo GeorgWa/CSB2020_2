@@ -1,4 +1,4 @@
-A, B, C, D
+CYCLINE, ACDC, ICDC, AAPC, IAPC
 
 # Michaelis Menten kinetics:                 SUBSTRATE -M-{V_max},{K_M}-> PRODUCT
 # MM kinetics with allosteric inhibition:    SUBSTRATE -I-{V_max},{K_M},{K_i},{INHIBITOR}-> PRODUCT
@@ -11,4 +11,13 @@ A, B, C, D
 #A -I-0.5,2,2,5,D-> B #cooperative conversion from B to C
 #B -M-1,2,5-> C #cooperative conversion from B to C
 #C -H-4,2,5-> D
-A -A-0.5,2,2,5,B-> B #cooperative conversion from B to C
+
+-S-0.06-> CYCLINE
+CYCLINE -S-0.001->
+CYCLINE -M-0.25,0.01,AAPC->
+
+ACDC -M-2,0.01-> ICDC
+ICDC -A-4,0.01,0.5,CYCLINE-> ACDC
+
+AAPC -M-0.7,0.01-> IAPC
+IAPC -M-1,0.01,ACDC-> AAPC
