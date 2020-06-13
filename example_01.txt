@@ -2,14 +2,14 @@ A, B, C, D
 # EDUKT + EDUKT -S-{k}-> PRODUCT + PRODUCT # Comment or reaction description
 
 # 0 order inflow
--S-1-> A
--S-0.75-> B
+-S-1-> A #Inflow of A
+-S-0.75-> B #Inflow of B
 
 # 3rd order reaction kinetics
 2A + B -S-0.5-> 2C + D # Reaction of two A and one B, k=0.5
 
 # 1st order outflow
 
-B -S-0.2->
-C -S-0.3-> 
-D -S-0.5->
+B -S-0.2-> #Outflow of B
+C -S-0.2-> #Outflow of C
+D -S-0.5-> #Outflow of D
